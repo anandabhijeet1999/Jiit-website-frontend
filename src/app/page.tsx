@@ -9,6 +9,7 @@ import Sports from "@/components/Sports";
 import Latest from "@/components/Latest";
 import WhatsHappening from "@/components/WhatsHappening";
 import LifeAtJIIT from "@/components/LifeAtJIIT";
+import Footer from "@/components/Footer";
 export default function Home() {
   return (
 <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
@@ -24,7 +25,7 @@ export default function Home() {
       <WhatsHappening/>
       <LifeAtJIIT/>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

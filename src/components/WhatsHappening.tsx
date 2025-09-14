@@ -78,7 +78,7 @@ export default function WhatsHappening() {
         </div>
 
         {/* Right side (Event Archive) */}
-        <div className="absolute right-0 top-10 w-full lg:w-1/3 bg-[#B9E4E7] rounded-lg p-6 flex flex-col justify-between self-start">
+        <div className="absolute right-0 top-10 w-full lg:w-1/3 bg-[#B9E4E7] rounded-lg p-10 flex flex-col justify-between self-start">
           <div>
             <h3 className="text-2xl font-bold text-gray-900">
               Event Archive

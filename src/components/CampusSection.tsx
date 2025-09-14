@@ -1,10 +1,15 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+
+// Campus Images
 import Logo from "../../public/Image/18.25.png";
 import MainCam from "../../public/Image/image (2).png";
 import Wish from "../../public/Image/image (3).png";
 import Vidya from "../../public/Image/image (4).png";
 import Location from "../../public/Image/Group (2).png";
+
+// Recruiter Logos
 import Logo1 from "../../public/Icon/Frame 65.png";
 import Logo2 from "../../public/Icon/Frame 66.png";
 import Logo3 from "../../public/Icon/Frame 67.png";
@@ -14,6 +19,15 @@ import Logo6 from "../../public/Icon/Frame 219.png";
 import Logo7 from "../../public/Icon/Frame 218.png";
 import Logo8 from "../../public/Icon/Frame 217.png";
 import Logo9 from "../../public/Icon/Frame 216.png";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/autoplay";
+
+// Array of logos (imported images instead of string paths)
+const logos = [Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7, Logo8, Logo9];
 
 export default function CampusSection() {
   return (
@@ -86,30 +100,33 @@ export default function CampusSection() {
       </div>
 
       {/* Logos Section with Horizontal Scroll */}
-      <div className="mt-10 overflow-x-auto scrollbar-hide">
-        <div className="flex items-center gap-6 w-max px-2">
-          {[
-            Logo1,
-            Logo2,
-            Logo3,
-            Logo4,
-            Logo5,
-            Logo6,
-            Logo7,
-            Logo8,
-            Logo9,
-          ].map((logo, index) => (
-            <div key={index} className="flex-shrink-0">
-              <Image
-                src={typeof logo === "string" ? `/${logo}` : logo}
-                alt={`logo-${index}`}
-                width={100}
-                height={60}
-                className="object-contain h-24 w-auto"
-              />
-            </div>
+      <div className="mt-10 w-full flex justify-center items-center">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={2}
+          slidesPerView={3}
+          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          loop={true}
+          breakpoints={{
+            320: { slidesPerView: 2, spaceBetween: 2 },
+            640: { slidesPerView: 3, spaceBetween: 2 },
+            1024: { slidesPerView: 5, spaceBetween: 2 },
+          }}
+        >
+          {logos.map((logo, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex justify-center items-center">
+                <Image
+                  src={logo}
+                  alt={`Recruiter Logo ${index + 1}`}
+                  width={100}
+                  height={60}
+                  className="h-24 w-auto mx-auto object-contain"
+                />
+              </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </div>
   );

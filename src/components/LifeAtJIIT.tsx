@@ -14,27 +14,27 @@ import Image10 from "../../public/Icon/image (16).png";
 import Image11 from "../../public/Icon/image (17).png";
 
 const images = [
- Image1,
- Image2,
- Image3,
- Image4,
- Image5,
- Image6,
- Image7,
- Image8,
- Image9,
- Image10,
- Image11,
+  Image1,
+  Image2,
+  Image3,
+  Image4,
+  Image5,
+  Image6,
+  Image7,
+  Image8,
+  Image9,
+  Image10,
+  Image11,
 ];
 
 export default function LifeAtJIIT() {
   return (
-    <section className="w-full bg-white py-12 px-4 md:px-12">
+    <section className="w-full bg-white py-12 px-4 md:px-12 mb-20">
       {/* Title */}
       <div className="text-left max-w-7xl mx-auto flex justify-between items-center flex-row">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-  Life <span className="text-[#111]">@JIIT</span>
-</h2>
+          Life@JIIT
+        </h2>
         <p className="text-gray-600 text-base md:text-lg leading-relaxed ml-20">
           Get a sneak peek into the dynamic world of JIIT, where we not only
           focus on academics, but focus beyond the classroom to give you an
@@ -44,7 +44,7 @@ export default function LifeAtJIIT() {
       </div>
 
       {/* Image Grid with Zig-Zag */}
-      <div className="mt-10 grid grid-cols-2 md:grid-cols-6 gap-4">
+      <div className="mt-16 grid grid-cols-2 md:grid-cols-6 gap-4">
         {images.map((src, index) => (
           <div
             key={index}

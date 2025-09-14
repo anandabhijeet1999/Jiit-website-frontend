@@ -3,10 +3,10 @@ import Background from "../../public/Icon/Background.png";
 import Icon from "../../public/Icon/15k+.png";
 export default function Sports() {
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-7xl mx-auto p-6">
+    <div className="bg-gray-50 ">
+      <section className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mx-auto">
         {/* Left Side */}
-        <div className="flex flex-col justify-center space-y-8">
+        <div className="flex flex-col justify-center space-y-8 ml-16">
           {/* First Block */}
           <div>
             <h2 className="text-3xl font-bold text-gray-900">In Spotlights</h2>
@@ -43,14 +43,14 @@ export default function Sports() {
         </div>
 
         {/* Right Side */}
-        <div className="relative">
+        <div className=" relative w-full h-full">
           {/* Background Image */}
           <Image
             src={Background}
             alt="Alumni Meet"
-            width={1400}
-            height={681}
-            className="w-full h-full object-cover rounded-lg"
+            width={1800}
+            height={700}
+            className="object-cover"
           />
 
           {/* Overlay Content */}
@@ -68,7 +68,7 @@ export default function Sports() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 mt-6 bg-white rounded-lg overflow-hidden shadow-md">
+            <div className="grid grid-cols-3 mt-6 bg-white rounded-lg overflow-hidden shadow-md ">
               <div className="p-4 text-center">
                 <p className="text-indigo-600 font-bold text-lg">1000+</p>
                 <p className="text-sm font-medium text-gray-600">

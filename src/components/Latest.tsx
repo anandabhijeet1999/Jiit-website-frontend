@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import { ChevronRight, Megaphone } from "lucide-react";
+import { ChevronRight, Search } from "lucide-react";
 import Student from "../../public/Icon/image (5).png";
 import Rectangle from "../../public/Icon/Rectangle 73.png";
 export default function Latest() {
@@ -76,8 +76,8 @@ export default function Latest() {
       </section>
 
       {/* 🔹 Program Section */}
-      <section className="w-full bg-[#2C2F8C] text-white px-6 py-12 md:px-16 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
+      <section className="w-full  text-white">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 bg-[#2f3472]">
           {/* Left Image */}
           <div className="w-full">
             <Image
@@ -88,36 +88,37 @@ export default function Latest() {
           </div>
 
           {/* Right Content */}
-          <div>
+          <div className="px-4 ">
             <h2 className="text-2xl md:text-3xl font-bold">Find Your Program</h2>
-            <p className="mt-3 text-gray-200 text-sm md:text-base">
+            <p className="mt-3 text-gray-200 text-sm md:text-base w-[550px]">
               At JIIT, you’ll find a program that aligns aptly with your academic
               interests and career aspirations. Leave the crowd and make your own
               path.
             </p>
 
-            <div className="flex flex-wrap gap-3 mt-6">
-              <button className="px-5 py-2 bg-white text-[#2C2F8C] rounded-md font-medium hover:bg-gray-200">
+            <div className="flex flex-wrap gap-3 mt-6 ">
+              <button className="px-12 py-2 border-2 border-[#0680F0] text-white rounded-md font-medium hover:bg-gray-400">
                 Undergraduate
-              </button>
-              <button className="px-5 py-2 bg-white text-[#2C2F8C] rounded-md font-medium hover:bg-gray-200">
+              </button>   
+              <button className="px-12 py-2 border-2 border-[#0680F0] text-white rounded-md font-medium hover:bg-gray-400">
                 Graduate
               </button>
-              <button className="px-5 py-2 bg-white text-[#2C2F8C] rounded-md font-medium hover:bg-gray-200">
+              <button className="px-10 py-2 border-2 border-[#0680F0] text-white rounded-md font-medium hover:bg-gray-400">
                 Doctoral
               </button>
             </div>
 
             {/* Search Box */}
-            <div className="mt-6 flex flex-col md:flex-row items-center w-full gap-3">
-              <select className="flex-1 px-4 py-2 rounded-md text-gray-800">
+            <div className="mt-6 flex flex-col md:flex-row items-center  gap-3 w-[550px]">
+              <select className="flex-1 px-4 py-2 rounded-md border-2 border-[#0680F0] text-white">
                 <option>Search Course and Programs</option>
                 <option>BTech</option>
                 <option>MTech</option>
                 <option>PhD</option>
               </select>
-              <button className="px-6 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600">
-                Search
+              <button className="px-6 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 flex justify-center items-center">
+                Search 
+                <Search className="m-1"/>
               </button>
             </div>
           </div>

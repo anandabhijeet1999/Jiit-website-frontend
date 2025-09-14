@@ -1,13 +1,15 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import BuildingImage from "../../public/Image/Back.jpg";
-import StartupIcon from "../../public/Image/image 70.png";
-import Book from "../../public/Image/Untitled-1 1.png";
-import Found from "../../public/Image/image 70 2.png";
-import Accro from "../../public/Image/Untitled-1 3.png";
+import StartupIcon from "../../public/Image/Stutap.png";
+import Publication from "../../public/Image/Publication.png";
+import Found from "../../public/Image/Fund.png";
+import Accro from "../../public/Image/Acco.png";
 import Appro from "../../public/Image/ajct.png";
 
 export default function HeroSection() {
@@ -16,7 +18,7 @@ export default function HeroSection() {
       title: "6719",
       subtitle: "Publications",
       desc: "Impactful research through JIIT’s publications",
-      image: Book,
+      image: Publication,
     },
     {
       title: "88",
@@ -42,45 +44,8 @@ export default function HeroSection() {
       desc: "AICTE approved Institution since 2018",
       image: Appro,
     },
+    
   ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // responsive cards per view
-  const [cardsPerView, setCardsPerView] = useState(1);
-
-  useEffect(() => {
-    const updateCardsPerView = () => {
-      if (window.innerWidth < 640) setCardsPerView(1); // mobile
-      else if (window.innerWidth < 768) setCardsPerView(2); // tablet
-      else if (window.innerWidth < 1024) setCardsPerView(3); // laptop
-      else setCardsPerView(5); // desktop large
-    };
-
-    updateCardsPerView();
-    window.addEventListener("resize", updateCardsPerView);
-    return () => window.removeEventListener("resize", updateCardsPerView);
-  }, []);
-
-  // Auto slide every 2 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [currentIndex, cardsPerView]);
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? cards.length - cardsPerView : prev - 1
-    );
-  };
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) =>
-      prev >= cards.length - cardsPerView ? 0 : prev + 1
-    );
-  };
 
   return (
     <main className="w-full">
@@ -102,7 +67,6 @@ export default function HeroSection() {
           {/* Content */}
           <div className="absolute top-1/4 left-6 md:left-12 text-white max-w-lg">
             <h1 className="text-3xl md:text-3xl font-bold mb-4 text-[#292F80]">
-
               Explore Life-Changing <br /> Opportunities
             </h1>
             <p className="text-lg md:text-xl mb-6">
@@ -116,7 +80,7 @@ export default function HeroSection() {
           {/* Stats */}
           <div className="absolute bottom-6 left-6 right-6 flex flex-wrap gap-6 text-white">
             {[
-              { number: "712", label: "Placement (Till Date)" },
+              { number: "712", label: <>Placement <br /> (Till Date)</> },
               { number: "88", label: "Funded Projects" },
               { number: "30", label: "Patents" },
               { number: "6719", label: "Publications" },
@@ -142,13 +106,15 @@ export default function HeroSection() {
         </div>
       </section>
 
-      {/* Strength Section */}
-      <section className="py-20 bg-[#E9EDF8] mt-10">
-        <div className="max-w-6xl mx-auto px-6">
-          {/* Heading + Para */}
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold">Our Strength</h2>
-            <p className="md:w-2/3 text-center md:text-left">
+      {/* Strength Section with Carousel */}
+      <section className="py-16 bg-[#E9EDF8]">
+
+        <div className="max-w-6xl mx-auto text-left">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold whitespace-nowrap mb-4 md:mb-0">
+              Our Strength
+            </h2>
+            <p className="text-gray-600 md:ml-10">
               Jaypee Institute of Information Technology (JIIT) is a premier
               institution for a reason. We align our curriculum with the latest
               industry trends, ensuring you graduate with the necessary skills
@@ -156,56 +122,54 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* Strength Cards (Carousel) */}
-          <div className="relative w-full overflow-hidden">
-            {/* Slider Wrapper */}
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${
-                  (currentIndex * 100) / cardsPerView
-                }%)`,
-              }}
-            >
-              {cards.map((card, i) => (
+          {/* Swiper Carousel */}
+          <Swiper
+            modules={[Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            autoplay={{ delay: 1000 }}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              640: { slidesPerView: 2 },
+              768: { slidesPerView: 3 },
+              1024: { slidesPerView: 5 },
+            }}
+          >
+            {cards.map((item, index) => (
+              <SwiperSlide key={index}>
                 <div
-                  key={i}
-                  className="min-w-full sm:min-w-1/3 md:min-w-1/4 lg:min-w-1/5 p-6 flex-shrink-0 
-                  rounded-2xl shadow-lg text-left flex flex-col items-left bg-gray-50 
-                  hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out"
+                  className="group  p-6 shadow-md flex flex-col items-left justify-center text-left 
+                    bg-white transition-all duration-300 hover:bg-orange-600 hover:text-white h-full"
                 >
-                  {card.image && (
+                  {/* Icon / Image */}
+                  <div className="mb-4">
                     <Image
-                      src={card.image}
-                      alt={card.subtitle}
-                      width={60}
-                      height={60}
-                      className="mb-4"
+                      src={item.image}
+                      alt={item.subtitle}
+                      className="w-20 h-20 object-contain"
                     />
-                  )}
-                  <h3 className="text-2xl font-bold">{card.title}</h3>
-                  <p className="font-semibold mt-2">{card.subtitle}</p>
-                  <p className="text-sm mt-2">{card.desc}</p>
+                  </div>
+
+                  {/* Title */}
+                  <h3
+                    className={`${
+                      index <= 2
+                        ? "text-2xl font-bold"
+                        : "text-xl font-semibold"
+                    }`}
+                  >
+                    {item.title}
+                  </h3>
+
+                  {/* Subtitle */}
+                  <p className="text-lg font-medium">{item.subtitle}</p>
+
+                  {/* Description */}
+                  <p className="text-sm mt-2">{item.desc}</p>
                 </div>
-              ))}
-            </div>
-
-            {/* Left Button */}
-            <button
-              onClick={prevSlide}
-              className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            {/* Right Button */}
-            <button
-              onClick={nextSlide}
-              className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
     </main>

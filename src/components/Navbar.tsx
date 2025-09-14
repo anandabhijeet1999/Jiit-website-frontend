@@ -32,8 +32,8 @@ export default function Header() {
                 src={Logo}
                 alt="JIIT University Logo"
                 width={80}
-                height={100}
-                className="w-[70px] h-[90px] md:w-[80px] md:h-[100px] lg:w-[100px] lg:h-[120px] object-contain"
+                height={80}
+                className="w-[70px] h-[90px] md:w-[70px] md:h-[80px] lg:w-[100px] lg:h-[120px] object-contain"
               />
               <div className="max-w-[300px] lg:max-w-full text-center lg:text-left">
                 <h1 className="text-base md:text-lg lg:text-xl font-bold text-[#2F3472] leading-tight">
