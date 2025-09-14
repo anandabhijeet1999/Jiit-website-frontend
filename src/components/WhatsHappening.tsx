@@ -36,8 +36,8 @@ export default function WhatsHappening() {
                   </p>
                   <p className="mt-2 text-gray-700 text-sm">
                     Dept of CSE & IT is organizing a 2-week Summer School on
-                    "Emerging Trends in Software Development: Tools and
-                    Techniques" from 01 -13 July 2024
+                    Emerging Trends in Software Development: Tools and
+                    Techniques from 01 -13 July 2024
                   </p>
                   <div className="mt-3 flex items-center text-gray-800 font-medium hover:text-black cursor-pointer">
                     <ArrowUpRight size={18} className="mr-1" /> Read More
@@ -57,9 +57,9 @@ export default function WhatsHappening() {
                     JULY 16 2024 | 01:00 PM
                   </p>
                   <p className="mt-2 text-gray-700 text-sm">
-                    Dept of PMSE is organizing One Week FDP on "Computational
+                    Dept of PMSE is organizing One Week FDP on Computational
                     techniques using High Performance Computing (HPC) in
-                    Physical Sciences” from 16th – 22nd July 2024
+                    Physical Sciences from 16th – 22nd July 2024
                   </p>
                   <div className="mt-3 flex items-center text-gray-800 font-medium hover:text-black cursor-pointer">
                     <ArrowUpRight size={18} className="mr-1" /> Read More
