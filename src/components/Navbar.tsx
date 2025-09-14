@@ -3,8 +3,8 @@ import Image from "next/image";
 import { useState } from "react";
 import { Menu, X, Search, Phone, Mail } from "lucide-react";
 import Link from "next/link";
-import Logo from "../../public/image/image 16.png";
-import Group from "../../public/image/Group.png";
+import Logo from "../../public/Image/image 16.png";
+import Group from "../../public/Image/Group.png";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
